@@ -1,0 +1,27 @@
+
+<!-- <h1> Register User</h1> -->
+<div class="outer" >
+    <div class="container">
+        <form #registerForm="ngForm" (ngSubmit)="getFormData(registerForm.value)">
+        <label  for="name">First Name</label>
+            <input ngModel={{name}} type="text" id="name" name="name" placeholder="Your name.." >
+        
+            <label for="email">Email</label>
+            <input ngModel={{email}} type="text" id="email" name="email" placeholder="Your Email..">
+
+            <label for="phone">Phone Number</label>
+            <input ngModel={{phone}} type="text" id="phone" name="phone" placeholder="Your Mobile Number..">
+
+            <label for="age">Age</label>
+            <input ngModel={{age}} type="text" id="age" name="age" placeholder="Your Age..">
+
+            <ng-template [ngIf]="action ===null" >
+                <button class="btn btn-primary">Submit </button>
+            </ng-template>
+            <ng-template [ngIf]="action ==='update'" >
+                <button (click)="updateUser(registerForm.value)" class="btn btn-primary">Update </button>
+            </ng-template>
+            
+        </form>
+    </div>
+</div>

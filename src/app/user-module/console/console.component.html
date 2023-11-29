@@ -1,0 +1,41 @@
+
+
+<!-- <button (click)="getData()" >click</button> -->
+
+<!-- <ul *ngFor="let user of userData" >
+    <li>{{user.age}}</li>
+    <li>{{user.email}}</li>
+    <li>{{user.name}}</li>
+    <li>{{user.phone}}</li>
+</ul> -->
+
+
+<div class="container" >
+    <button style="float: right" class="btn btn-sm btn-outline-success" routerLink="form" >Add New</button>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Age</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let user of userData; index as i" >
+        <tr>
+            <th scope="row">{{i}}</th>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.age}}</td>
+            <td>
+                <!-- <button class="btn btn-sm btn-outline-success" routerLink="update/{{user.id}}" >Edit</button> &nbsp; &nbsp; -->
+                <button class="btn btn-sm btn-outline-success" routerLink="form/update/{{user.id}}" >Edit</button> &nbsp; &nbsp;
+                <button class="btn btn-sm btn-outline-danger" (click)="deleteDataFromLocal(user.id)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div> 
